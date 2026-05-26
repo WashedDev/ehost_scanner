@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/storage_service.dart';
+import 'theme/machenji_theme.dart';
 
 void main() {
   runApp(const EhostScannerApp());
@@ -13,12 +14,9 @@ class EhostScannerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EHost Scanner',
+      title: 'Machenji Scanner',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.deepPurple,
-      ),
+      theme: MachenjiTheme.dark,
       home: const AuthGate(),
     );
   }

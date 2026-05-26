@@ -5,7 +5,7 @@ import 'storage_service.dart';
 class ApiService {
   // Android emulator uses 10.0.2.2 to access your computer's localhost.
   // If you use a real phone, replace this with your computer's LAN IP.
-  static const String baseUrl = 'https://ehost.ctechapp.com/api';
+  static const String baseUrl = 'https://machenji.com/api';
   final StorageService _storageService = StorageService();
 
   Future<Map<String, dynamic>> login({

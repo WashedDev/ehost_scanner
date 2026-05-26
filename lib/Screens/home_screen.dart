@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('EHost Scanner'),
+        title: const Text('Machenji Ticket Scanner'),
         actions: [
           IconButton(
             onPressed: () => _logout(context),
