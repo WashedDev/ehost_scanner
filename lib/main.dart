@@ -5,6 +5,7 @@ import 'services/storage_service.dart';
 import 'theme/machenji_theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const EhostScannerApp());
 }
 
@@ -42,19 +43,34 @@ class _AuthGateState extends State<AuthGate> {
   }
 
   Future<void> _checkToken() async {
-    final token = await _storageService.getToken();
+    try {
+      final token = await _storageService.getToken();
 
-    setState(() {
-      _loggedIn = token != null;
-      _loading = false;
-    });
+      if (!mounted) return;
+
+      setState(() {
+        _loggedIn = token != null && token.isNotEmpty;
+        _loading = false;
+      });
+    } catch (error) {
+      debugPrint('AuthGate token check failed: $error');
+
+      if (!mounted) return;
+
+      setState(() {
+        _loggedIn = false;
+        _loading = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     if (_loading) {
       return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
       );
     }
 
