@@ -17,7 +17,7 @@ class EhostScannerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Machenji Scanner',
       debugShowCheckedModeBanner: false,
-      theme: MachenjiTheme.dark,
+      theme: MachenjiTheme.light,
       home: const AuthGate(),
     );
   }
